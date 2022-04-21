@@ -30,9 +30,8 @@
 
 contributterを使っているユーザーの1日のcontribute数トップ3をメンション付きで自動ツイートするbotです。
 
-実際のbot: [![Twitter Follow](https://img.shields.io/twitter/follow/_who_is_king_)](https://twitter.com/_who_is_king_) → Forked: [![Twitter Follow](https://img.shields.io/twitter/follow/satoch_bot)](https://twitter.com/satoch_bot)
-
-詳細記事: <https://zenn.dev/shuntatakemoto/articles/00264c2b366612>
+- Original: [![Twitter Follow](https://img.shields.io/twitter/follow/_who_is_king_)](https://twitter.com/_who_is_king_)
+  - → Forked: [![Twitter Follow](https://img.shields.io/twitter/follow/satoch_bot)](https://twitter.com/satoch_bot)
 
 ## 処理機構
 
