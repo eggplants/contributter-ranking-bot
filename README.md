@@ -1,8 +1,36 @@
 # contributter-ranking-bot
 
+[![PyPI](
+  https://img.shields.io/pypi/v/contributter-ranking-bot?color=blue
+)](
+  https://pypi.org/project/contributter-ranking-bot/
+) [![Maintainability](
+  https://api.codeclimate.com/v1/badges/8e7faa6da2e464a07b4e/maintainability
+)](
+  https://codeclimate.com/github/eggplants/contributter-ranking-bot/maintainability
+)
+
+[![Run Bot](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron.yml/badge.svg
+)](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/run.yml
+) [![Release Package](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml/badge.svg
+)](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml
+) [![pages-build-deployment](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/pages/pages-build-deployment/badge.svg
+)](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/pages/pages-build-deployment
+) [![pre-commit.ci](
+  https://results.pre-commit.ci/badge/github/eggplants/contributter-ranking-bot/main.svg
+)](
+  https://results.pre-commit.ci/latest/github/eggplants/contributter-ranking-bot/main
+)
+
 contributterを使っているユーザーの1日のcontribute数トップ3をメンション付きで自動ツイートするbotです。
 
-実際のbot: <https://twitter.com/_who_is_king_>
+実際のbot: [![Twitter Follow](https://img.shields.io/twitter/follow/_who_is_king_)](https://twitter.com/_who_is_king_) → Forked: [![Twitter Follow](https://img.shields.io/twitter/follow/satoch_bot)](https://twitter.com/satoch_bot)
 
 詳細記事: <https://zenn.dev/shuntatakemoto/articles/00264c2b366612>
 
