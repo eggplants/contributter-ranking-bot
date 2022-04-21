@@ -48,7 +48,7 @@ class ContributterRanking:
         if len(tweets) < self.top_n:
             raise ValueError(
                 "Number of Retrieved Tweets must be less than expected top_n"
-                f"(got: {len(tweets)}< {self.top_n})"
+                f"(got: {len(tweets)} < {self.top_n})"
             )
         rank_data = self.parse_contributter_reports(tweets)
         top_n_contributers = self.get_top_contibutters(rank_data, self.top_n)
@@ -119,7 +119,7 @@ class ContributterRanking:
         ) = data
         content = textwrap.dedent(
             f"""
-            ✨{self.day_before_str} の Contribution 数 Ranking✨
+            ✨{self.day_before_str} の Contribution Ranking✨
 
             🥇 {first_num} contributions: @{first_name}さん
             🥈 {second_num} contributions: @{second_name}さん
