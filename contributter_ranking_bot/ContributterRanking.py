@@ -120,9 +120,11 @@ class ContributterRanking:
         content = textwrap.dedent(
             f"""
             ✨{self.day_before_str} の Contribution 数 Ranking✨
-            🥇 @{first_name}さん　contribution 数: {first_num}
-            🥈 @{second_name}さん　contribution 数: {second_num}
-            🥉 @{third_name}さん　contribution 数: {third_num}
+
+            🥇 {first_num} contributions: @{first_name}さん
+            🥈 {second_num} contributions: @{second_name}さん
+            🥉 {third_num} contributions: @{third_name}さん
+
             #contributter_ranking
             """
         )
