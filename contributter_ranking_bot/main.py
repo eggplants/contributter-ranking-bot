@@ -15,6 +15,7 @@ class CustomHelpFormatter(
 
 
 def check_file(s: str) -> str:
+    """Check if given path is a file."""
     if os.path.isfile(s):
         return s
     else:
@@ -22,6 +23,7 @@ def check_file(s: str) -> str:
 
 
 def parse_args() -> argparse.Namespace:
+    """Parse command line arguments."""
     parser = argparse.ArgumentParser(
         prog="crb",
         description="This command makes Contributter Ranking Bot easier to run.",
@@ -44,6 +46,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
+    """Run CLI."""
     args = parse_args()
     CR = ContributterRanking(args.key)
     status_code, response_json, _ = CR.run()

@@ -43,6 +43,7 @@ class ContributterRanking:
         return yesterday.strftime("%Y/%m/%d")
 
     def run(self) -> tuple[int, dict[str, Any], Any]:
+        """Run Bot."""
         tweets = self.get_contributter_tweets()
         if len(tweets) < self.top_n:
             raise ValueError(
