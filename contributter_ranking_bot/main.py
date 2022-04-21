@@ -48,7 +48,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     """Run CLI."""
     args = parse_args()
-    CR = ContributterRanking(args.key)
+    CR = ContributterRanking(key_path=args.key)
     status_code, response_json, _ = CR.run()
     status = 0
     if status_code == 200:
