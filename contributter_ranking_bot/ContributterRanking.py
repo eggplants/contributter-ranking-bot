@@ -42,38 +42,36 @@ class ContributterRanking:
         yesterday = datetime.datetime.today() - datetime.timedelta(days=day_before)
         return yesterday.strftime("%Y/%m/%d")
 
-    @classmethod
-    def run(cls) -> tuple[int, dict[str, Any], Any]:
-        tweets = cls.get_contributter_tweets()
-        if len(tweets) < cls.top_n:
+    def run(self) -> tuple[int, dict[str, Any], Any]:
+        tweets = self.get_contributter_tweets()
+        if len(tweets) < self.top_n:
             raise ValueError(
                 "Number of Retrieved Tweets must be less than expected top_n"
-                f"(got: {len(tweets)}< {cls.top_n})"
+                f"(got: {len(tweets)}< {self.top_n})"
             )
-        rank_data = cls.parse_contributter_reports(tweets)
-        top_n_contributers = cls.get_top_contibutters(rank_data, cls.top_n)
-        tweet_result = cls.tweet_top3(top_n_contributers)
+        rank_data = self.parse_contributter_reports(tweets)
+        top_n_contributers = self.get_top_contibutters(rank_data, self.top_n)
+        tweet_result = self.tweet_top3(top_n_contributers)
         return (
             int(tweet_result.status_code),
             json.loads(str(tweet_result.text)),
             tweet_result,
         )
 
-    @classmethod
-    def get_contributter_tweets(cls) -> list[Any]:
+    def get_contributter_tweets(self) -> list[Any]:
         """Retrieve yesterday's all contributter reports form twitter."""
         max_id = -1
         params = {
             "count": 100,
-            "q": f"#contributter_report {cls.day_before_str} exclude:retweets",
+            "q": f"#contributter_report {self.day_before_str} exclude:retweets",
             "max_id": max_id,
         }
         tweets, statuses = [], None
-        while statuses != []:
+        while statuses is None or len(statuses) != 0:
             if max_id != -1:
                 params["max_id"] = max_id - 1
 
-            req = cls.twitter_oauth.get(
+            req = self.twitter_oauth.get(
                 "https://api.twitter.com/1.1/search/tweets.json", params=params
             )
             if req.status_code == 200:
@@ -81,8 +79,8 @@ class ContributterRanking:
                 statuses = res.get("statuses", [])
                 for status in statuses:
                     tweets.append(status)
-                max_id = res["statuses"][-1]["id"]
-            time.sleep(cls.wait_sec)
+                max_id = max_id if len(statuses) == 0 else statuses[-1]["id"]
+            time.sleep(self.wait_sec)
         return tweets
 
     @staticmethod
@@ -92,7 +90,7 @@ class ContributterRanking:
         for tweet in tweets:
             content = str(tweet["text"])
             m = re.match(
-                "^([a-z0-9_]{1,15}) さんの \d{4}/\d{2}/\d{2} の contribution 数: (\d+)",
+                r"^([a-z0-9_]{1,15}) さんの \d{4}/\d{2}/\d{2} の contribution 数: (\d+)",
                 content,
             )
             if m is not None:
@@ -111,8 +109,7 @@ class ContributterRanking:
         """Rank data and Get top contributors."""
         return collections.Counter(rank_data).most_common(top)
 
-    @classmethod
-    def tweet_top3(cls, data: list[tuple[str, int]]) -> Any:
+    def tweet_top3(self, data: list[tuple[str, int]]) -> Any:
         (
             (first_name, first_num),
             (second_name, second_num),
@@ -121,14 +118,14 @@ class ContributterRanking:
         ) = data
         content = textwrap.dedent(
             f"""
-            ✨{cls.day_before_str} の Contribution 数 Ranking✨
-            🥇 @ {first_name}さん contribution数{first_num}
-            🥈 @ {second_name}さん contribution数{second_num}
-            🥉 @ {third_name}さん contribution数{third_num}
+            ✨{self.day_before_str} の Contribution 数 Ranking✨
+            🥇 @{first_name}さん　contribution 数: {first_num}
+            🥈 @{second_name}さん　contribution 数: {second_num}
+            🥉 @{third_name}さん　contribution 数: {third_num}
             #contributter_ranking
             """
         )
         params = {"status": content}
-        return cls.twitter_oauth.post(
+        return self.twitter_oauth.post(
             "https://api.twitter.com/1.1/statuses/update.json", params=params
         )

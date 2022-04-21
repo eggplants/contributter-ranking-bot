@@ -4,9 +4,6 @@ import argparse
 import json
 import os
 import shutil
-import sys
-import textwrap
-from typing import Optional, cast
 
 from . import ContributterRanking, __version__
 
@@ -53,11 +50,11 @@ def main() -> None:
     status = 0
     if status_code == 200:
         print(
-            "Running Bot was successful!\n"
-            f"See at: https://twitter.com/{response_json['user']['screen_name']}/status/{response_json['id']}"
+            "# Running Bot was successful!\n"
+            f"# See at: https://twitter.com/{response_json['user']['screen_name']}/status/{response_json['id']}"
         )
     else:
-        print("Running Bot was failed!")
+        print("# Running Bot was failed!")
         status = 1
 
     if not args.quiet:
