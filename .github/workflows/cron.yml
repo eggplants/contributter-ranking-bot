@@ -20,7 +20,7 @@ jobs:
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           git remote set-url origin https://eggplants:${{secrets.GITHUB_TOKEN}}@github.com/${{ github.repository }}
-          git checkout master
+          git checkout main
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
@@ -40,6 +40,6 @@ jobs:
         run: |
           git add ./log
           git commit -m "update: $(date +%y%m%d)"
-          git push origin master
+          git push origin main
       - name: Exit
         run: (exit ${{ steps.run-bot.outputs.STATUS }})
