@@ -123,3 +123,128 @@ Thu Apr 21 19:26:42 UTC 2022
     "retweeted": false,
     "lang": "ja"
 }
+Fri Apr 22 04:33:23 JST 2022
+# Running Bot was successful!
+# See at: https://twitter.com/satoch_bot/status/1517225132456087558
+{
+    "created_at": "Thu Apr 21 19:33:54 +0000 2022",
+    "id": 1517225132456087558,
+    "id_str": "1517225132456087558",
+    "text": "\u27282022/04/21 \u306e Contribution \u6570 Ranking\u2728\n\ud83e\udd47 @uuki_dev\u3055\u3093\u3000contribution \u6570: 31\n\ud83e\udd48 @sapphi_red\u3055\u3093\u3000contribution \u6570: 24\n\ud83e\udd49\u2026 https://t.co/i8v6EBpNvE",
+    "truncated": true,
+    "entities": {
+        "hashtags": [],
+        "symbols": [],
+        "user_mentions": [
+            {
+                "screen_name": "uuki_dev",
+                "name": "uuki",
+                "id": 1068695935,
+                "id_str": "1068695935",
+                "indices": [
+                    40,
+                    49
+                ]
+            },
+            {
+                "screen_name": "sapphi_red",
+                "name": "\u7fe0",
+                "id": 1104942872577490944,
+                "id_str": "1104942872577490944",
+                "indices": [
+                    73,
+                    84
+                ]
+            }
+        ],
+        "urls": [
+            {
+                "url": "https://t.co/i8v6EBpNvE",
+                "expanded_url": "https://twitter.com/i/web/status/1517225132456087558",
+                "display_url": "twitter.com/i/web/status/1\u2026",
+                "indices": [
+                    109,
+                    132
+                ]
+            }
+        ]
+    },
+    "source": "<a href=\"https://example.com\" rel=\"nofollow\">Contributter Ranking</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+        "id": 1400407522083676169,
+        "id_str": "1400407522083676169",
+        "name": "Contributter Ranking Bot (\u30c6\u30b9\u30c8\u904b\u7528)",
+        "screen_name": "satoch_bot",
+        "location": "JST2\u6642\u3054\u308d\u306b\u66f4\u65b0",
+        "description": "contributter_ranking (@_who_is_king_) \u304c\u6b62\u307e\u3063\u305f\u305f\u3081Fork\u3057\u3066\u52d5\u304b\u3057\u3066\u3044\u308b\u3082\u306e\u3067\u3059\u3002",
+        "url": "https://t.co/RK1s4HX2s5",
+        "entities": {
+            "url": {
+                "urls": [
+                    {
+                        "url": "https://t.co/RK1s4HX2s5",
+                        "expanded_url": "https://egpl.ga/contributter-ranking-bot",
+                        "display_url": "egpl.ga/contributter-r\u2026",
+                        "indices": [
+                            0,
+                            23
+                        ]
+                    }
+                ]
+            },
+            "description": {
+                "urls": []
+            }
+        },
+        "protected": false,
+        "followers_count": 0,
+        "friends_count": 0,
+        "listed_count": 0,
+        "created_at": "Thu Jun 03 11:02:37 +0000 2021",
+        "favourites_count": 0,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 1,
+        "lang": null,
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "F5F8FA",
+        "profile_background_image_url": null,
+        "profile_background_image_url_https": null,
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1517212731463536640/ktHUSooa_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1517212731463536640/ktHUSooa_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1400407522083676169/1650567063",
+        "profile_link_color": "1DA1F2",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "none",
+        "withheld_in_countries": []
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "ja"
+}
