@@ -13,6 +13,7 @@ jobs:
       CONSUMER_SECRET: ${{secrets.CONSUMER_SECRET}}
       ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
       ACCESS_TOKEN_SECRET: ${{secrets.ACCESS_TOKEN_SECRET}}
+      TZ: 'Asia/Tokyo'
     steps:
       - uses: actions/checkout@v2
       - name: Configure git
