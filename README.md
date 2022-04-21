@@ -72,6 +72,8 @@ Thu Apr 21 19:26:42 UTC 2022
     "created_at": "Thu Apr 21 19:27:13 +0000 2022",
 ...
 }
+
+$ crb -d 5 -n 5 -k .twitter.key  # 5 days before, tweet top-five ranking
 ```
 
 ## 処理機構
