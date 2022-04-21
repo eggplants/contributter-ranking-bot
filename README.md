@@ -28,13 +28,13 @@
   https://results.pre-commit.ci/latest/github/eggplants/contributter-ranking-bot/main
 )
 
-contributterを使っているユーザーの1日のcontribute数トップ3をメンション付きで自動ツイートするbotです。
+[contributter](https://contributter.potato4d.me/)を使っているユーザーの1日のcontribute数トップ3をメンション付きで自動ツイートするbotです。
 
 - Original: [![Twitter Follow](https://img.shields.io/twitter/follow/_who_is_king_)](https://twitter.com/_who_is_king_)
   - → Forked: [![Twitter Follow](https://img.shields.io/twitter/follow/satoch_bot)](https://twitter.com/satoch_bot)
 
 ## 処理機構
 
-1. 昨日の#contributter_reportのついたツイート内のcontribution数とユーザーIDを取得
+1. 昨日の`#contributter_report`のついたツイート内のcontribution数とユーザーIDを取得
 2. contribution数を集計してランキング化
 3. ランキング上位3人をメンションしてcontribution数を記載し、自動ツイート
