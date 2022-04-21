@@ -22,6 +22,24 @@ def check_file(s: str) -> str:
         raise argparse.ArgumentTypeError(f"{repr(s)} is not a file.")
 
 
+def check_positive(s: str) -> int:
+    """Check if given str is a positive int."""
+    s_int = int(s)
+    if s_int > 0:
+        return s_int
+    else:
+        raise argparse.ArgumentTypeError(f"{repr(s)} is not a positive int.")
+
+
+def check_natural(s: str) -> int:
+    """Check if given str is a natural int."""
+    s_int = int(s)
+    if s_int >= 0:
+        return s_int
+    else:
+        raise argparse.ArgumentTypeError(f"{repr(s)} is not a natural int. (>=0)")
+
+
 def parse_args() -> argparse.Namespace:
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(
@@ -38,6 +56,30 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument("-k", "--key", type=check_file, help="key file", metavar="PATH")
+    parser.add_argument(
+        "-d",
+        "--day-before",
+        type=check_natural,
+        help="n days before",
+        metavar="DAY",
+        default=1,
+    )
+    parser.add_argument(
+        "-w",
+        "--wait-sec",
+        type=check_natural,
+        help="interval of retrieving tweets",
+        metavar="SEC",
+        default=10,
+    )
+    parser.add_argument(
+        "-n",
+        "--top-n",
+        type=check_positive,
+        help="top n to tweet",
+        metavar="N",
+        default=3,
+    )
     parser.add_argument("-q", "--quiet", action="store_true", help="suppress log print")
     parser.add_argument(
         "-V", "--version", action="version", version=f"%(prog)s {__version__}"
@@ -48,7 +90,12 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     """Run CLI."""
     args = parse_args()
-    CR = ContributterRanking(key_path=args.key)
+    CR = ContributterRanking(
+        key_path=args.key,
+        day_before=args.day_before,
+        top_n=args.top_n,
+        wait_sec=args.wait_sec,
+    )
     status_code, response_json, _ = CR.run()
     status = 0
     if status_code == 200:

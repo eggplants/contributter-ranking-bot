@@ -7,7 +7,6 @@ import datetime
 import json
 import os
 import re
-import textwrap
 import time
 from typing import Any
 
@@ -16,13 +15,28 @@ import requests_oauthlib  # type: ignore[import]
 
 
 class ContributterRanking:
-    def __init__(self, key_path: str | None = "~/.twitter.key") -> None:
+    """Class for create cnotributter ranking and tweets."""
+
+    def __init__(
+        self,
+        key_path: str | None = "~/.twitter.key",
+        day_before: int = 1,
+        top_n: int = 3,
+        wait_sec: int = 10,
+    ) -> None:
         if key_path is not None and os.path.isfile(key_path):
             dotenv.load_dotenv(key_path)
-        self.day_before: int = 1
-        self.top_n: int = 3
-        self.wait_sec: int = 10
+
+        self.day_before: int = day_before
+        self.day_before_str: str = self.get_n_before(self.day_before)
+
+        self.top_n: int = top_n
+        self.wait_sec: int = wait_sec
         self.twitter_oauth: requests_oauthlib.OAuth1Session = self.__get_twitter_oauth()
+
+    def set_day_before(self, day_before: int) -> None:
+        """Set day."""
+        self.day_before: int = day_before
         self.day_before_str: str = self.get_n_before(self.day_before)
 
     @staticmethod
@@ -52,7 +66,7 @@ class ContributterRanking:
             )
         rank_data = self.parse_contributter_reports(tweets)
         top_n_contributers = self.get_top_contibutters(rank_data, self.top_n)
-        tweet_result = self.tweet_top3(top_n_contributers)
+        tweet_result = self.tweet_top_n(top_n_contributers)
         return (
             int(tweet_result.status_code),
             json.loads(str(tweet_result.text)),
@@ -110,25 +124,21 @@ class ContributterRanking:
         """Rank data and Get top contributors."""
         return collections.Counter(rank_data).most_common(top)
 
-    def tweet_top3(self, data: list[tuple[str, int]]) -> Any:
-        (
-            (first_name, first_num),
-            (second_name, second_num),
-            (third_name, third_num),
-            *_,
-        ) = data
-        content = textwrap.dedent(
-            f"""
-            ✨{self.day_before_str} の Contribution Ranking✨
-
-            🥇 {first_num} contributions: @{first_name}さん
-            🥈 {second_num} contributions: @{second_name}さん
-            🥉 {third_num} contributions: @{third_name}さん
-
-            #contributter_ranking
-            """
-        )
-        params = {"status": content}
+    def tweet_top_n(self, data: list[tuple[str, int]]) -> Any:
+        contents = ["✨{self.day_before_str} の Contribution Ranking✨", ""]
+        for idx, (name, num) in enumerate(data):
+            prefix = str(idx + 1)
+            if idx == 0:
+                prefix = "🥇"
+            elif idx == 1:
+                prefix = "🥈"
+            elif idx == 2:
+                prefix = "🥉"
+            contents.append(f"{prefix} {num} contributions: @{name}さん")
+        else:
+            contents.append("")
+            contents.append("#contributter_ranking")
+        params = {"status": "\n".join(contents)}
         return self.twitter_oauth.post(
             "https://api.twitter.com/1.1/statuses/update.json", params=params
         )

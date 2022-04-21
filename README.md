@@ -33,6 +33,47 @@
 - Original: [![Twitter Follow](https://img.shields.io/twitter/follow/_who_is_king_)](https://twitter.com/_who_is_king_)
   - → Forked: [![Twitter Follow](https://img.shields.io/twitter/follow/satoch_bot)](https://twitter.com/satoch_bot)
 
+## Installation
+
+```sh
+pip install contributter-ranking-bot
+# or:
+pip install git+https://github.com/eggplants/contributter-ranking-bot
+```
+
+## CLI Usage
+
+```shellsession
+$ crb -h
+usage: crb [-h] [-k PATH] [-d DAY] [-w SEC] [-n N] [-q] [-V]
+
+This command makes Contributter Ranking Bot easier to run.
+
+optional arguments:
+  -h, --help                show this help message and exit
+  -k PATH, --key PATH       key file (default: None)
+  -d DAY, --day-before DAY  n days before (default: 1)
+  -w SEC, --wait-sec SEC    interval of retrieving tweets (default: 10)
+  -n N, --top-n N           top n to tweet (default: 3)
+  -q, --quiet               suppress log print (default: False)
+  -V, --version             show program's version number and exit
+
+$ cat .twitter.key
+CONSUMER_KEY="***"
+CONSUMER_SECRET="***"
+ACCESS_TOKEN="***"
+ACCESS_TOKEN_SECRET="***"
+
+$ crb -k .twitter.key
+Thu Apr 21 19:26:42 UTC 2022
+# Running Bot was successful!
+# See at: https://twitter.com/satoch_bot/status/1517223447868448768
+{
+    "created_at": "Thu Apr 21 19:27:13 +0000 2022",
+...
+}
+```
+
 ## 処理機構
 
 1. 昨日の`#contributter_report`のついたツイート内のcontribution数とユーザーIDを取得
