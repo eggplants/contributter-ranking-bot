@@ -51,6 +51,18 @@ class ContributterRanking:
         )
 
     @staticmethod
+    def is_contributtter_report(tweet: str) -> tuple[bool, str | None, str | None]:
+        m = re.match(
+            r"^([a-z0-9_]{1,15}) さんの \d{4}/\d{2}/\d{2} の contribution 数: (\d+)",
+            tweet,
+        )
+        if m is not None:
+            screen_name, contribution_count, *_ = m.groups()
+            return True, screen_name, contribution_count
+        else:
+            return False, None, None
+
+    @staticmethod
     def get_n_before(day_before: int = 1) -> str:
         """Get yeaterday date string. (YYYY/MM/DD)"""
         yesterday = datetime.datetime.today() - datetime.timedelta(days=day_before)
@@ -100,23 +112,16 @@ class ContributterRanking:
         else:
             return tweets
 
-    @staticmethod
-    def parse_contributter_reports(tweets: Any) -> dict[str, int]:
+    def parse_contributter_reports(self, tweets: Any) -> dict[str, int]:
         """Create a dictionary of tweets usernames and number of contributions."""
         rank_data: dict[str, int] = {}
         for tweet in tweets:
-            content = str(tweet["text"])
-            m = re.match(
-                r"^([a-z0-9_]{1,15}) さんの \d{4}/\d{2}/\d{2} の contribution 数: (\d+)",
-                content,
+            ok, screen_name, contribution_count = self.is_contributtter_report(tweet)
+            contributor_name = str(
+                tweet.get("user", {"screen_name": ""}).get("screen_name", "")
             )
-            if m is not None:
-                screen_name, contribution_count, *_ = m.groups()
-                contributor_name = str(
-                    tweet.get("user", {"screen_name": ""}).get("screen_name", "")
-                )
-                if contributor_name != "":
-                    rank_data[screen_name] = int(contribution_count)
+            if ok and contributor_name != "":
+                rank_data[screen_name] = int(contribution_count)
         else:
             return rank_data
 
