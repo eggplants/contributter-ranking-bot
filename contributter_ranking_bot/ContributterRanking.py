@@ -130,7 +130,7 @@ class ContributterRanking:
     def get_stat(rank_data: dict[str, int]) -> str:
         n = len(rank_data)
         contrib_sum = sum(rank_data.values())
-        avg = float(contrib_sum/n)
+        avg = float(contrib_sum / n)
         return f"ppl: {n}, sum: {contrib_sum}🟩, avg: {avg:.2f}"
 
     def tweet_top_n(self, data: list[tuple[str, int]], stat: str) -> Any:
