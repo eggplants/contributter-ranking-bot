@@ -248,3 +248,148 @@ Fri Apr 22 04:33:23 JST 2022
     "retweeted": false,
     "lang": "ja"
 }
+Fri Apr 22 22:27:35 JST 2022
+# Running Bot was successful!
+# See at: https://twitter.com/satoch_bot/status/1517495462579765248
+{
+    "created_at": "Fri Apr 22 13:28:06 +0000 2022",
+    "id": 1517495462579765248,
+    "id_str": "1517495462579765248",
+    "text": "\u2728Contribution Ranking - 2022/04/21\u2728\n\ud83e\udd47 31\ud83d\udfe9: @uuki_dev\n\ud83e\udd48 24\ud83d\udfe9: @sapphi_red\n\ud83e\udd49 23\ud83d\udfe9: @hannoeru\n\ud83c\udfc5 21\ud83d\udfe9: @hiroki19990625\n\ud83c\udf96\ufe0f\u2026 https://t.co/PHJCSRI89t",
+    "truncated": true,
+    "entities": {
+        "hashtags": [],
+        "symbols": [],
+        "user_mentions": [
+            {
+                "screen_name": "uuki_dev",
+                "name": "uuki",
+                "id": 1068695935,
+                "id_str": "1068695935",
+                "indices": [
+                    43,
+                    52
+                ]
+            },
+            {
+                "screen_name": "sapphi_red",
+                "name": "\u7fe0",
+                "id": 1104942872577490944,
+                "id_str": "1104942872577490944",
+                "indices": [
+                    60,
+                    71
+                ]
+            },
+            {
+                "screen_name": "hannoeru",
+                "name": "\u30cf\u30f3(Han)",
+                "id": 2470752560,
+                "id_str": "2470752560",
+                "indices": [
+                    79,
+                    88
+                ]
+            },
+            {
+                "screen_name": "hiroki19990625",
+                "name": "\u3072\u308d\u304d",
+                "id": 2260970125,
+                "id_str": "2260970125",
+                "indices": [
+                    96,
+                    111
+                ]
+            }
+        ],
+        "urls": [
+            {
+                "url": "https://t.co/PHJCSRI89t",
+                "expanded_url": "https://twitter.com/i/web/status/1517495462579765248",
+                "display_url": "twitter.com/i/web/status/1\u2026",
+                "indices": [
+                    116,
+                    139
+                ]
+            }
+        ]
+    },
+    "source": "<a href=\"https://example.com\" rel=\"nofollow\">Contributter Ranking</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+        "id": 1400407522083676169,
+        "id_str": "1400407522083676169",
+        "name": "Contributter Ranking Bot",
+        "screen_name": "satoch_bot",
+        "location": "1 AM JST \u3054\u308d\u66f4\u65b0",
+        "description": "#contributter_report \u304b\u3089\u30c8\u30c3\u30d75\u306e\u65b9\u3005\u3092\u6bce\u65e5\u304a\u77e5\u3089\u305b\u3059\u308bBot\u3067\u3059\u3002Fork\u5143\u2192@_who_is_king_(\u4f5c\u8005\u69d8: @haruta_8_)",
+        "url": "https://t.co/RK1s4IfbGd",
+        "entities": {
+            "url": {
+                "urls": [
+                    {
+                        "url": "https://t.co/RK1s4IfbGd",
+                        "expanded_url": "https://egpl.ga/contributter-ranking-bot",
+                        "display_url": "egpl.ga/contributter-r\u2026",
+                        "indices": [
+                            0,
+                            23
+                        ]
+                    }
+                ]
+            },
+            "description": {
+                "urls": []
+            }
+        },
+        "protected": false,
+        "followers_count": 1,
+        "friends_count": 2,
+        "listed_count": 0,
+        "created_at": "Thu Jun 03 11:02:37 +0000 2021",
+        "favourites_count": 0,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 1,
+        "lang": null,
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "F5F8FA",
+        "profile_background_image_url": null,
+        "profile_background_image_url_https": null,
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1517212731463536640/ktHUSooa_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1517212731463536640/ktHUSooa_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1400407522083676169/1650588529",
+        "profile_link_color": "1DA1F2",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "none",
+        "withheld_in_countries": []
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+}
