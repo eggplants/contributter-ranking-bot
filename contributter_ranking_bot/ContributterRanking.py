@@ -66,7 +66,8 @@ class ContributterRanking:
             )
         rank_data = self.parse_contributter_reports(tweets)
         top_n_contributers = self.get_top_contibutters(rank_data, self.top_n)
-        tweet_result = self.tweet_top_n(top_n_contributers)
+        stat = self.get_stat(rank_data)
+        tweet_result = self.tweet_top_n(top_n_contributers, stat)
         return (
             int(tweet_result.status_code),
             json.loads(str(tweet_result.text)),
@@ -96,7 +97,8 @@ class ContributterRanking:
                     tweets.append(status)
                 max_id = max_id if len(statuses) == 0 else statuses[-1]["id"]
             time.sleep(self.wait_sec)
-        return tweets
+        else:
+            return tweets
 
     @staticmethod
     def parse_contributter_reports(tweets: Any) -> dict[str, int]:
@@ -124,7 +126,14 @@ class ContributterRanking:
         """Rank data and Get top contributors."""
         return collections.Counter(rank_data).most_common(top)
 
-    def tweet_top_n(self, data: list[tuple[str, int]]) -> Any:
+    @staticmethod
+    def get_stat(rank_data: dict[str, int]) -> str:
+        n = len(rank_data)
+        contrib_sum = sum(rank_data.values())
+        avg = float(contrib_sum/n)
+        return f"ppl: {n}, sum: {contrib_sum}🟩, avg: {avg:.2f}"
+
+    def tweet_top_n(self, data: list[tuple[str, int]], stat: str) -> Any:
         contents = [f"✨Contribution Ranking - {self.day_before_str}✨"]
         tr = str.maketrans("1234567890", "１２３４５６７８９０")
         for idx, (name, num) in enumerate(data):
@@ -142,6 +151,7 @@ class ContributterRanking:
                 prefix = str(idx + 1).translate(tr) + " "
             contents.append(f"{prefix} {num}🟩: @{name}")
         else:
+            contents.append(stat)
             contents.append("#contributter_ranking")
         params = {"status": "\n".join(contents)}
         return self.twitter_oauth.post(
