@@ -112,9 +112,10 @@ class ContributterRanking:
             )
             if m is not None:
                 screen_name, contribution_count, *_ = m.groups()
-                if screen_name == str(
+                contributor_name = str(
                     tweet.get("user", {"screen_name": ""}).get("screen_name", "")
-                ):
+                )
+                if contributor_name != "":
                     rank_data[screen_name] = int(contribution_count)
         else:
             return rank_data
