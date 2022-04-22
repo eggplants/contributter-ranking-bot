@@ -2,7 +2,7 @@ name: Run Bot
 
 on:
   schedule:
-    - cron: 0 17 * * * # at 17PM-UTC, 2AM-JST
+    - cron: 0 16 * * * # at 16PM-UTC, 1AM-JST
   workflow_dispatch:
 
 jobs:
