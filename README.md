@@ -18,7 +18,9 @@
   https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml/badge.svg
 )](
   https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml
-) [![pages-build-deployment](
+)
+
+[![pages-build-deployment](
   https://github.com/eggplants/contributter-ranking-bot/actions/workflows/pages/pages-build-deployment/badge.svg
 )](
   https://github.com/eggplants/contributter-ranking-bot/actions/workflows/pages/pages-build-deployment
@@ -28,7 +30,10 @@
   https://results.pre-commit.ci/latest/github/eggplants/contributter-ranking-bot/main
 )
 
-[contributter](https://contributter.potato4d.me/)を使っているユーザーの1日のcontribute数トップ3をメンション付きで自動ツイートするbotです。
+- [Contributter](https://contributter.potato4d.me/) Ranking Bot for Twitter
+- Forked from [shuntatakemoto/contributter-ranking-bot](https://github.com/shuntatakemoto/contributter-ranking-bot)
+
+## Deployment on Twitter
 
 - Original: [![Twitter Follow](https://img.shields.io/twitter/follow/_who_is_king_)](https://twitter.com/_who_is_king_)
   - → Forked: [![Twitter Follow](https://img.shields.io/twitter/follow/satoch_bot)](https://twitter.com/satoch_bot)
@@ -75,9 +80,3 @@ Thu Apr 21 19:26:42 UTC 2022
 
 $ crb -d 5 -n 5 -k .twitter.key  # 5 days before, tweet top-five ranking
 ```
-
-## 処理機構
-
-1. 昨日の`#contributter_report`のついたツイート内のcontribution数とユーザーIDを取得
-2. contribution数を集計してランキング化
-3. ランキング上位3人をメンションしてcontribution数を記載し、自動ツイート
