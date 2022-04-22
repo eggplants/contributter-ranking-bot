@@ -1,6 +1,10 @@
 # contributter-ranking-bot
 
-[![PyPI](
+[![MIT]](
+  https://img.shields.io/badge/license-MIT-blue.svg?style=flat
+)](
+  https://github.com/eggplants/contributter-ranking-bot/blob/main/LICENSE
+) [![PyPI](
   https://img.shields.io/pypi/v/contributter-ranking-bot?color=blue
 )](
   https://pypi.org/project/contributter-ranking-bot/
