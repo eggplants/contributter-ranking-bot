@@ -2,25 +2,25 @@ name: Run Bot
 
 on:
   schedule:
-    - cron: 0 17 * * *  # at 17PM-UTC, 2AM-JST
+    - cron: 0 17 * * * # at 17PM-UTC, 2AM-JST
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      CONSUMER_KEY: ${{secrets.CONSUMER_KEY}}
-      CONSUMER_SECRET: ${{secrets.CONSUMER_SECRET}}
-      ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
-      ACCESS_TOKEN_SECRET: ${{secrets.ACCESS_TOKEN_SECRET}}
-      TZ: 'Asia/Tokyo'
+      CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+      CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+      TZ: "Asia/Tokyo"
     steps:
       - uses: actions/checkout@v2
       - name: Configure git
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
-          git remote set-url origin https://eggplants:${{secrets.GITHUB_TOKEN}}@github.com/${{ github.repository }}
+          git remote set-url origin "https://eggplants:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git checkout main
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
