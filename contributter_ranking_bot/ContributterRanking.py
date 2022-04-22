@@ -15,7 +15,7 @@ import requests_oauthlib  # type: ignore[import]
 
 
 class ContributterRanking:
-    """Class for create cnotributter ranking and tweets."""
+    """Create cnotributter ranking and tweets."""
 
     def __init__(
         self,
@@ -126,9 +126,8 @@ class ContributterRanking:
 
     def tweet_top_n(self, data: list[tuple[str, int]]) -> Any:
         contents = [f"✨Contribution Ranking - {self.day_before_str}✨"]
+        tr = str.maketrans("1234567890", "１２３４５６７８９０")
         for idx, (name, num) in enumerate(data):
-            tr = str.maketrans("1234567890", "１２３４５６７８９０")
-            prefix = str(idx + 1).translate(tr) + " "
             if idx == 0:
                 prefix = "🥇"
             elif idx == 1:
@@ -139,6 +138,8 @@ class ContributterRanking:
                 prefix = "🏅"
             elif idx == 4:
                 prefix = "🎖️"
+            else:
+                prefix = str(idx + 1).translate(tr) + " "
             contents.append(f"{prefix} {num}🟩: @{name}")
         else:
             contents.append("#contributter_ranking")
