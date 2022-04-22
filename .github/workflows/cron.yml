@@ -33,7 +33,7 @@ jobs:
       - name: Run Bot
         id: run-bot
         run: |
-          res="$(date && crb)"
+          res="$(date && crb -n 5)"
           status="$?"
           echo "$res" >> ./log
           echo "::set-output name=STATUS::${status}"
