@@ -1,6 +1,6 @@
 # contributter-ranking-bot
 
-[![MIT]](
+[![MIT](
   https://img.shields.io/badge/license-MIT-blue.svg?style=flat
 )](
   https://github.com/eggplants/contributter-ranking-bot/blob/main/LICENSE
