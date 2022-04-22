@@ -40,7 +40,7 @@ jobs:
           echo "::set-output name=STATUS::${status}"
       - name: Commit
         run: |
-          git add ./log
+          git add ./.log.jsonl
           git commit -m "update: $(date +%y%m%d)"
           git push origin main
       - name: Exit
