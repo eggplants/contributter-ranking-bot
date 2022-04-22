@@ -125,7 +125,7 @@ class ContributterRanking:
         return collections.Counter(rank_data).most_common(top)
 
     def tweet_top_n(self, data: list[tuple[str, int]]) -> Any:
-        contents = [f"✨{self.day_before_str} の Contribution Ranking✨"]
+        contents = [f"✨Contribution Ranking - {self.day_before_str}✨"]
         for idx, (name, num) in enumerate(data):
             tr = str.maketrans("1234567890", "１２３４５６７８９０")
             prefix = str(idx + 1).translate(tr) + " "
@@ -135,7 +135,11 @@ class ContributterRanking:
                 prefix = "🥈"
             elif idx == 2:
                 prefix = "🥉"
-            contents.append(f"{prefix} {num} contributions: @{name}さん")
+            elif idx == 3:
+                prefix = "🏅"
+            elif idx == 4:
+                prefix = "🎖️"
+            contents.append(f"{prefix} {num}🟩: @{name}")
         else:
             contents.append("#contributter_ranking")
         params = {"status": "\n".join(contents)}
