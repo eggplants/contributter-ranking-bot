@@ -70,7 +70,6 @@ ACCESS_TOKEN="***"
 ACCESS_TOKEN_SECRET="***"
 
 $ crb -k .twitter.key
-Thu Apr 21 19:26:42 UTC 2022
 # Running Bot was successful!
 # See at: https://twitter.com/satoch_bot/status/1517223447868448768
 {
