@@ -1,9 +1,12 @@
+"""CLI."""
+
 from __future__ import annotations
 
 import argparse
 import json
 import os
 import shutil
+import sys
 
 from . import ContributterRanking, __version__
 
@@ -11,33 +14,30 @@ from . import ContributterRanking, __version__
 class CustomHelpFormatter(
     argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter
 ):
-    pass
+    """Custom formatter to pretty help text."""
 
 
-def check_file(s: str) -> str:
+def check_file(arg_s: str) -> str:
     """Check if given path is a file."""
-    if os.path.isfile(s):
-        return s
-    else:
-        raise argparse.ArgumentTypeError(f"{repr(s)} is not a file.")
+    if not os.path.isfile(arg_s):
+        raise argparse.ArgumentTypeError(f"{repr(arg_s)} is not a file.")
+    return arg_s
 
 
-def check_positive(s: str) -> int:
+def check_positive(arg_s: str) -> int:
     """Check if given str is a positive int."""
-    s_int = int(s)
-    if s_int > 0:
-        return s_int
-    else:
-        raise argparse.ArgumentTypeError(f"{repr(s)} is not a positive int.")
+    s_int = int(arg_s)
+    if s_int <= 0:
+        raise argparse.ArgumentTypeError(f"{repr(arg_s)} is not a positive int.")
+    return s_int
 
 
-def check_natural(s: str) -> int:
+def check_natural(arg_s: str) -> int:
     """Check if given str is a natural int."""
-    s_int = int(s)
-    if s_int >= 0:
-        return s_int
-    else:
-        raise argparse.ArgumentTypeError(f"{repr(s)} is not a natural int. (>=0)")
+    s_int = int(arg_s)
+    if s_int < 0:
+        raise argparse.ArgumentTypeError(f"{repr(arg_s)} is not a natural int. (>=0)")
+    return s_int
 
 
 def parse_args() -> argparse.Namespace:
@@ -90,18 +90,18 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     """Run CLI."""
     args = parse_args()
-    CR = ContributterRanking(
+    cr_ = ContributterRanking(
         key_path=args.key,
         day_before=args.day_before,
         top_n=args.top_n,
         wait_sec=args.wait_sec,
     )
-    status_code, response_json, _ = CR.run()
+    status_code, response_json, _ = cr_.run()
     status = 0
     if status_code == 200:
         print(
-            "# Running Bot was successful!\n"
-            f"# See at: https://twitter.com/{response_json['user']['screen_name']}/status/{response_json['id']}"
+            "# Running Bot was successful!\n# See at: https://twitter.com/"
+            f"{response_json['user']['screen_name']}/status/{response_json['id']}"
         )
     else:
         print("# Running Bot was failed!")
@@ -109,7 +109,7 @@ def main() -> None:
 
     if not args.quiet:
         print(json.dumps(response_json, sort_keys=False, indent=4))
-    exit(status)
+    sys.exit(status)
 
 
 if __name__ == "__main__":
