@@ -147,7 +147,7 @@ class ContributterRanking:
         contrib_n = len(rank_data)
         contrib_sum = sum(rank_data.values())
         avg = float(contrib_sum / contrib_n)
-        return f"ppl: {contrib_n}👤, sum: {contrib_sum}🟩, avg: {avg:.2f}🟩"
+        return f"📊<[ppl: {contrib_n}👤, sum: {contrib_sum}🟩, avg: {avg:.2f}🟩]"
 
     def __tweet_top_n(
         self, data: list[tuple[str, int]], stat: str, dry_run: bool = False

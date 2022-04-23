@@ -50,6 +50,17 @@ pip install contributter-ranking-bot
 pip install git+https://github.com/eggplants/contributter-ranking-bot
 ```
 
+## Tweet Format
+
+```txt
+✨Contribution Ranking - {YYYY/MM/DD}✨
+{prefix} {num}🟩: @{mention_interrupt}{name}
+...
+{prefix} {num}🟩: @{mention_interrupt}{name}
+📊<[ppl: {contrib_n}👤, sum: {contrib_sum}🟩, avg: {avg:.2f}🟩]
+#contributter_ranking
+```
+
 ## CLI Usage
 
 ```shellsession
