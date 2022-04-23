@@ -120,7 +120,7 @@ class ContributterRanking:
         rank_data: dict[str, int] = {}
         for tweet in tweets:
             is_ok, screen_name, contribution_count = self.__is_contributtter_report(
-                tweet
+                tweet.get("text", "")
             )
             contributor_name = str(
                 tweet.get("user", {"screen_name": ""}).get("screen_name", "")
