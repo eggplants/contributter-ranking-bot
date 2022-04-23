@@ -82,6 +82,9 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("-q", "--quiet", action="store_true", help="suppress log print")
     parser.add_argument(
+        "-D", "--dry-run", action="store_true", help="tweet without mentions"
+    )
+    parser.add_argument(
         "-V", "--version", action="version", version=f"%(prog)s {__version__}"
     )
     return parser.parse_args()
@@ -93,10 +96,9 @@ def main() -> None:
     cr_ = ContributterRanking(
         key_path=args.key,
         day_before=args.day_before,
-        top_n=args.top_n,
         wait_sec=args.wait_sec,
     )
-    status_code, response_json, _ = cr_.run()
+    status_code, response_json, _ = cr_.run(top_n=args.top_n, dry_run=args.dry_run)
     status = 0
     if status_code == 200:
         print(

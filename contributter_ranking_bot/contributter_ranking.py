@@ -21,23 +21,41 @@ class ContributterRanking:
         self,
         key_path: str | None = "~/.twitter.key",
         day_before: int = 1,
-        top_n: int = 3,
         wait_sec: int = 10,
     ) -> None:
         if key_path is not None and os.path.isfile(key_path):
             dotenv.load_dotenv(key_path)
 
-        self.day_before: int = day_before
-        self.day_before_str: str = self.get_n_before(self.day_before)
+        self.__day_before_str: str = self.__get_n_before(day_before)
 
-        self.top_n: int = top_n
-        self.wait_sec: int = wait_sec
-        self.twitter_oauth: requests_oauthlib.OAuth1Session = self.__get_twitter_oauth()
+        self.__wait_sec: int = wait_sec
+        self.__twitter_oauth: requests_oauthlib.OAuth1Session = (
+            self.__get_twitter_oauth()
+        )
 
     def set_day_before(self, day_before: int) -> None:
         """Set day."""
-        self.day_before = day_before
-        self.day_before_str = self.get_n_before(self.day_before)
+        self.__day_before_str = self.__get_n_before(day_before)
+
+    def run(
+        self, top_n: int = 3, dry_run: bool = False
+    ) -> tuple[int, dict[str, Any], Any]:
+        """Run Bot."""
+        tweets = self.__get_contributter_tweets()
+        if len(tweets) < top_n:
+            raise ValueError(
+                "Number of Retrieved Tweets must be less than expected top_n"
+                f"(got: {len(tweets)} < {top_n})"
+            )
+        rank_data = self.__parse_contributter_reports(tweets)
+        top_n_contributers = self.__get_top_contibutters(rank_data, top_n)
+        stat = self.__get_stat(rank_data)
+        tweet_result = self.__tweet_top_n(top_n_contributers, stat, dry_run=dry_run)
+        return (
+            int(tweet_result.status_code),
+            json.loads(str(tweet_result.text)),
+            tweet_result,
+        )
 
     @staticmethod
     def __get_twitter_oauth() -> requests_oauthlib.OAuth1Session:
@@ -51,7 +69,7 @@ class ContributterRanking:
         )
 
     @staticmethod
-    def is_contributtter_report(tweet: str) -> tuple[bool, str | None, int | None]:
+    def __is_contributtter_report(tweet: str) -> tuple[bool, str | None, int | None]:
         """Check if tweet is a valid contributter report."""
         match = re.match(
             r"^([a-z0-9_]{1,15}) さんの \d{4}/\d{2}/\d{2} の contribution 数: (\d+)",
@@ -63,35 +81,17 @@ class ContributterRanking:
         return False, None, None
 
     @staticmethod
-    def get_n_before(day_before: int = 1) -> str:
+    def __get_n_before(day_before: int = 1) -> str:
         """Get yeaterday date string. (YYYY/MM/DD)"""
         yesterday = datetime.datetime.today() - datetime.timedelta(days=day_before)
         return yesterday.strftime("%Y/%m/%d")
 
-    def run(self) -> tuple[int, dict[str, Any], Any]:
-        """Run Bot."""
-        tweets = self.get_contributter_tweets()
-        if len(tweets) < self.top_n:
-            raise ValueError(
-                "Number of Retrieved Tweets must be less than expected top_n"
-                f"(got: {len(tweets)} < {self.top_n})"
-            )
-        rank_data = self.parse_contributter_reports(tweets)
-        top_n_contributers = self.get_top_contibutters(rank_data, self.top_n)
-        stat = self.get_stat(rank_data)
-        tweet_result = self.tweet_top_n(top_n_contributers, stat)
-        return (
-            int(tweet_result.status_code),
-            json.loads(str(tweet_result.text)),
-            tweet_result,
-        )
-
-    def get_contributter_tweets(self) -> list[Any]:
+    def __get_contributter_tweets(self) -> list[Any]:
         """Retrieve yesterday's all contributter reports form twitter."""
         max_id = -1
         params = {
             "count": 100,
-            "q": f"#contributter_report {self.day_before_str} exclude:retweets",
+            "q": f"#contributter_report {self.__day_before_str} exclude:retweets",
             "max_id": max_id,
         }
         tweets: list[Any] = []
@@ -100,7 +100,7 @@ class ContributterRanking:
             if max_id != -1:
                 params["max_id"] = max_id - 1
 
-            req = self.twitter_oauth.get(
+            req = self.__twitter_oauth.get(
                 "https://api.twitter.com/1.1/search/tweets.json", params=params
             )
             if req.status_code == 200:
@@ -108,14 +108,16 @@ class ContributterRanking:
                 statuses_ = list(res.get("statuses", []))
                 tweets.extend(statuses_)
                 max_id = statuses_[-1]["id"]
-            time.sleep(self.wait_sec)
+            time.sleep(self.__wait_sec)
         return tweets
 
-    def parse_contributter_reports(self, tweets: Any) -> dict[str, int]:
+    def __parse_contributter_reports(self, tweets: Any) -> dict[str, int]:
         """Create a dictionary of tweets usernames and number of contributions."""
         rank_data: dict[str, int] = {}
         for tweet in tweets:
-            is_ok, screen_name, contribution_count = self.is_contributtter_report(tweet)
+            is_ok, screen_name, contribution_count = self.__is_contributtter_report(
+                tweet
+            )
             contributor_name = str(
                 tweet.get("user", {"screen_name": ""}).get("screen_name", "")
             )
@@ -129,33 +131,36 @@ class ContributterRanking:
         return rank_data
 
     @staticmethod
-    def get_top_contibutters(
+    def __get_top_contibutters(
         rank_data: dict[str, int], top: int = 3
     ) -> list[tuple[str, int]]:
         """Rank data and Get top contributors."""
         return collections.Counter(rank_data).most_common(top)
 
     @staticmethod
-    def get_stat(rank_data: dict[str, int]) -> str:
+    def __get_stat(rank_data: dict[str, int]) -> str:
         """Get statistics."""
         contrib_n = len(rank_data)
         contrib_sum = sum(rank_data.values())
         avg = float(contrib_sum / contrib_n)
         return f"ppl: {contrib_n}👤, sum: {contrib_sum}🟩, avg: {avg:.2f}🟩"
 
-    def tweet_top_n(self, data: list[tuple[str, int]], stat: str) -> Any:
+    def __tweet_top_n(
+        self, data: list[tuple[str, int]], stat: str, dry_run: bool = False
+    ) -> Any:
         """Tweet top-n with stats."""
-        contents = [f"✨Contribution Ranking - {self.day_before_str}✨"]
+        mention_interrupt = "." if dry_run else ""
+        contents = [f"✨Contribution Ranking - {self.__day_before_str}✨"]
         tr_table = str.maketrans("1234567890", "１２３４５６７８９０")
         for idx, (name, num) in enumerate(data):
             if 0 <= idx <= 4:
                 prefix = ("🥇", "🥈", "🥉", "🏅", "🎖️")[idx]
             else:
                 prefix = str(idx + 1).translate(tr_table) + " "
-            contents.append(f"{prefix} {num}🟩: @{name}")
+            contents.append(f"{prefix} {num}🟩: @{mention_interrupt}{name}")
         contents.append(stat)
         contents.append("#contributter_ranking")
         params = {"status": "\n".join(contents)}
-        return self.twitter_oauth.post(
+        return self.__twitter_oauth.post(
             "https://api.twitter.com/1.1/statuses/update.json", params=params
         )

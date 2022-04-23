@@ -54,7 +54,7 @@ pip install git+https://github.com/eggplants/contributter-ranking-bot
 
 ```shellsession
 $ crb -h
-usage: crb [-h] [-k PATH] [-d DAY] [-w SEC] [-n N] [-q] [-V]
+usage: crb [-h] [-k PATH] [-d DAY] [-w SEC] [-n N] [-q] [-D] [-V]
 
 This command makes Contributter Ranking Bot easier to run.
 
@@ -65,6 +65,7 @@ optional arguments:
   -w SEC, --wait-sec SEC    interval of retrieving tweets (default: 10)
   -n N, --top-n N           top n to tweet (default: 3)
   -q, --quiet               suppress log print (default: False)
+  -D, --dry-run             tweet without mentions (default: False)
   -V, --version             show program's version number and exit
 
 $ cat .twitter.key
