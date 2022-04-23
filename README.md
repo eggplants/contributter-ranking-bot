@@ -84,3 +84,7 @@ $ crb -k .twitter.key
 # 5 days before, tweet top-five ranking
 $ crb -d 5 -n 5 -k .twitter.key
 ```
+
+## License
+
+MIT
