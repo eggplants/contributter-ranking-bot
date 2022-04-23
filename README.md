@@ -14,16 +14,6 @@
   https://codeclimate.com/github/eggplants/contributter-ranking-bot/maintainability
 )
 
-[![Run Bot](
-  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron.yml/badge.svg
-)](
-  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/run.yml
-) [![Release Package](
-  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml/badge.svg
-)](
-  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml
-)
-
 [![pages-build-deployment](
   https://github.com/eggplants/contributter-ranking-bot/actions/workflows/pages/pages-build-deployment/badge.svg
 )](
@@ -32,6 +22,20 @@
   https://results.pre-commit.ci/badge/github/eggplants/contributter-ranking-bot/main.svg
 )](
   https://results.pre-commit.ci/latest/github/eggplants/contributter-ranking-bot/main
+)
+
+[![Run Bot for test](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron_test.yml/badge.svg
+)](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron_test.yml
+) [![Run Bot](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron.yml/badge.svg
+)](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/run.yml
+) [![Release Package](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml/badge.svg
+)](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml
 )
 
 - [Contributter](https://contributter.potato4d.me/) Ranking Bot for Twitter
