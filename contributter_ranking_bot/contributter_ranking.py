@@ -49,9 +49,9 @@ class ContributterRanking:
                 f"(got: {len(tweets)} < {top_n})"
             )
         rank_data = self.__parse_contributter_reports(tweets)
-        top_n_contributers = self.__get_top_contibutters(rank_data, top_n)
+        top_n_contributors = self.__get_top_contibutters(rank_data, top_n)
         stat = self.__get_stat(rank_data)
-        tweet_result = self.__tweet_top_n(top_n_contributers, stat, dry_run=dry_run)
+        tweet_result = self.__tweet_top_n(top_n_contributors, stat, dry_run=dry_run)
         return (
             int(tweet_result.status_code),
             json.loads(str(tweet_result.text)),

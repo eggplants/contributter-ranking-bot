@@ -44,6 +44,10 @@ repos:
     rev: v2.1.0
     hooks:
       - id: codespell
+  - repo: https://github.com/crate-ci/typos
+    rev: 'typos-v0.9.0'
+    hooks:
+      - id: typos
   - repo: local
     hooks:
       - id: pylint
