@@ -49,7 +49,7 @@ class ContributterRanking:
                 f"(got: {len(tweets)} < {top_n})"
             )
         rank_data = self.__parse_contributter_reports(tweets)
-        top_n_contributors = self.__get_top_contibutters(rank_data, top_n)
+        top_n_contributors = self.__get_top_contibutters(rank_data, top=top_n)
         stat = self.__get_stat(rank_data)
         tweet_result = self.__tweet_top_n(top_n_contributors, stat, dry_run=dry_run)
         return (
@@ -68,18 +68,6 @@ class ContributterRanking:
         return requests_oauthlib.OAuth1Session(
             consumer_key, consumer_secret, access_token, access_token_secret
         )
-
-    @staticmethod
-    def __is_contributtter_report(tweet: str) -> tuple[bool, str | None, int | None]:
-        """Check if tweet is a valid contributter report."""
-        match = re.match(
-            r"^([a-z0-9_]{1,15}) さんの \d{4}/\d{2}/\d{2} の contribution 数: (\d+)",
-            tweet,
-        )
-        if match is not None:
-            screen_name, contribution_count, *_ = match.groups()
-            return True, screen_name, int(contribution_count)
-        return False, None, None
 
     @staticmethod
     def __get_n_before(day_before: int = 1) -> str:
@@ -134,6 +122,23 @@ class ContributterRanking:
                 rank_data[screen_name] = int(contribution_count)
         return rank_data
 
+    def __is_contributtter_report(
+        self, tweet: str
+    ) -> tuple[bool, str | None, int | None]:
+        """Check if tweet is a valid contributter report."""
+        match = re.match(
+            (
+                r"^([a-zA-Z0-9_]{1,15}) さんの "
+                + self.__day_before_str
+                + r" の contribution 数: (\d+)\n#contributter_report$"
+            ),
+            tweet,
+        )
+        if match is not None:
+            screen_name, contribution_count, *_ = match.groups()
+            return True, screen_name, int(contribution_count)
+        return False, None, None
+
     @staticmethod
     def __get_top_contibutters(
         rank_data: dict[str, int], top: int = 3
@@ -164,7 +169,8 @@ class ContributterRanking:
             contents.append(f"{prefix} {num}🟩: @{mention_interrupt}{name}")
         contents.append(stat)
         contents.append("#contributter_ranking")
-        params = {"status": "\n".join(contents)}
+        content = "\n".join(contents)
+        params = {"status": content}
         return self.__twitter_oauth.post(
             "https://api.twitter.com/1.1/statuses/update.json", params=params
         )
