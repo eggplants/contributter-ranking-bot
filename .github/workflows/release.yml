@@ -6,20 +6,10 @@ name: Release Package
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v3
-      - name: Run pre-commit
-        uses: pre-commit/action@v2.0.3
   release:
-    needs: check
     name: Create Release
     runs-on: ubuntu-latest
     steps:
