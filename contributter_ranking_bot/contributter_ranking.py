@@ -51,7 +51,7 @@ class ContributterRanking:
         )
 
     @staticmethod
-    def is_contributtter_report(tweet: str) -> tuple[bool, str | None, str | None]:
+    def is_contributtter_report(tweet: str) -> tuple[bool, str | None, int | None]:
         """Check if tweet is a valid contributter report."""
         match = re.match(
             r"^([a-z0-9_]{1,15}) さんの \d{4}/\d{2}/\d{2} の contribution 数: (\d+)",
@@ -59,7 +59,7 @@ class ContributterRanking:
         )
         if match is not None:
             screen_name, contribution_count, *_ = match.groups()
-            return True, screen_name, contribution_count
+            return True, screen_name, int(contribution_count)
         return False, None, None
 
     @staticmethod
@@ -119,7 +119,12 @@ class ContributterRanking:
             contributor_name = str(
                 tweet.get("user", {"screen_name": ""}).get("screen_name", "")
             )
-            if is_ok and contributor_name != "":
+            if (
+                is_ok
+                and screen_name is not None
+                and contribution_count is not None
+                and contributor_name != ""
+            ):
                 rank_data[screen_name] = int(contribution_count)
         return rank_data
 
@@ -143,16 +148,8 @@ class ContributterRanking:
         contents = [f"✨Contribution Ranking - {self.day_before_str}✨"]
         tr_table = str.maketrans("1234567890", "１２３４５６７８９０")
         for idx, (name, num) in enumerate(data):
-            if idx == 0:
-                prefix = "🥇"
-            elif idx == 1:
-                prefix = "🥈"
-            elif idx == 2:
-                prefix = "🥉"
-            elif idx == 3:
-                prefix = "🏅"
-            elif idx == 4:
-                prefix = "🎖️"
+            if 0 <= idx <= 4:
+                prefix = ("🥇", "🥈", "🥉", "🏅", "🎖️")[idx]
             else:
                 prefix = str(idx + 1).translate(tr_table) + " "
             contents.append(f"{prefix} {num}🟩: @{name}")

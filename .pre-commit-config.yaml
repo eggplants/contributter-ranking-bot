@@ -37,8 +37,8 @@ repos:
       - id: mypy
         additional_dependencies:
           - types-setuptools
-          # - ...
-        files: ^my-best-python-project/
+          - python-dotenv
+        files: ^contributter_ranking_bot/
         args: [--strict]
   - repo: https://github.com/codespell-project/codespell
     rev: v2.1.0
