@@ -7,6 +7,7 @@ import datetime
 import json
 import os
 import re
+import sys
 import time
 from typing import Any
 
@@ -88,26 +89,29 @@ class ContributterRanking:
 
     def __get_contributter_tweets(self) -> list[Any]:
         """Retrieve yesterday's all contributter reports form twitter."""
-        max_id = -1
         params = {
             "count": 100,
             "q": f"#contributter_report {self.__day_before_str} exclude:retweets",
-            "max_id": max_id,
+            "max_id": -1,
         }
         tweets: list[Any] = []
         statuses: None | list[Any] = None
         while statuses is None or len(statuses) != 0:
-            if max_id != -1:
-                params["max_id"] = max_id - 1
+            if statuses is not None:
+                # pylint: disable=unsubscriptable-object
+                params["max_id"] = statuses[-1]["id"] - 1
 
             req = self.__twitter_oauth.get(
                 "https://api.twitter.com/1.1/search/tweets.json", params=params
             )
             if req.status_code == 200:
                 res: dict[str, Any] = json.loads(req.text)
-                statuses_ = list(res.get("statuses", []))
-                tweets.extend(statuses_)
-                max_id = statuses_[-1]["id"]
+                statuses = list(res.get("statuses", []))
+                tweets.extend(statuses)
+                print(f"{req.status_code}: id={params['max_id']}", file=sys.stderr)
+            else:
+                statuses = None
+                print(f"{req.status_code}: id={params['max_id']}", file=sys.stderr)
             time.sleep(self.__wait_sec)
         return tweets
 
