@@ -39,8 +39,8 @@
 
 ## Deployment on Twitter
 
-- Original: [![Twitter Follow](https://img.shields.io/twitter/follow/_who_is_king_)](https://twitter.com/_who_is_king_)
-  - → Forked: [![Twitter Follow](https://img.shields.io/twitter/follow/satoch_bot)](https://twitter.com/satoch_bot)
+- Original: [![Twitter Follow @who_is_king](https://img.shields.io/twitter/follow/_who_is_king_)](https://twitter.com/_who_is_king_)
+  - → Forked: [![Twitter Follow @ContribRankBot](https://img.shields.io/twitter/follow/ContribRankBot)](https://twitter.com/ContribRankBot)
 
 ## Installation
 
