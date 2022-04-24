@@ -46,8 +46,9 @@ repos:
       - id: mypy
         additional_dependencies:
           - types-setuptools
+          - python-dotenv
           # - ...
-        files: ^contributter-ranking-bot/
+        files: ^contributter_ranking_bot/
         args: []
   - repo: https://github.com/crate-ci/typos
     rev: 'typos-v0.9.0'
