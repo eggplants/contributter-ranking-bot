@@ -39,14 +39,16 @@ class ContributterRanking:
         self.__day_before_str = self.__get_n_before(day_before)
 
     def run(
-        self, top_n: int = 3, dry_run: bool = False
+        self,
+        top_n: int = 3,
+        dry_run: bool = False,
     ) -> tuple[int, dict[str, Any], Any]:
         """Run Bot."""
         tweets = self.__get_contributter_tweets()
         if len(tweets) < top_n:
             raise ValueError(
                 "Number of Retrieved Tweets must be less than expected top_n"
-                f"(got: {len(tweets)} < {top_n})"
+                f"(got: {len(tweets)} < {top_n})",
             )
         rank_data = self.__parse_contributter_reports(tweets)
         top_n_contributors = self.__get_top_contibutters(rank_data, top=top_n)
@@ -66,7 +68,10 @@ class ContributterRanking:
         access_token = os.environ["ACCESS_TOKEN"]
         access_token_secret = os.environ["ACCESS_TOKEN_SECRET"]
         return requests_oauthlib.OAuth1Session(
-            consumer_key, consumer_secret, access_token, access_token_secret
+            consumer_key,
+            consumer_secret,
+            access_token,
+            access_token_secret,
         )
 
     @staticmethod
@@ -90,7 +95,8 @@ class ContributterRanking:
                 params["max_id"] = statuses[-1]["id"] - 1
 
             req = self.__twitter_oauth.get(
-                "https://api.twitter.com/1.1/search/tweets.json", params=params
+                "https://api.twitter.com/1.1/search/tweets.json",
+                params=params,
             )
             if req.status_code == 200:
                 res: dict[str, Any] = json.loads(req.text)
@@ -108,10 +114,10 @@ class ContributterRanking:
         rank_data: dict[str, int] = {}
         for tweet in tweets:
             is_ok, screen_name, contribution_count = self.__is_contributtter_report(
-                tweet.get("text", "")
+                tweet.get("text", ""),
             )
             contributor_name = str(
-                tweet.get("user", {"screen_name": ""}).get("screen_name", "")
+                tweet.get("user", {"screen_name": ""}).get("screen_name", ""),
             )
             if (
                 is_ok
@@ -123,7 +129,8 @@ class ContributterRanking:
         return rank_data
 
     def __is_contributtter_report(
-        self, tweet: str
+        self,
+        tweet: str,
     ) -> tuple[bool, str | None, int | None]:
         """Check if tweet is a valid contributter report."""
         match = re.match(
@@ -141,7 +148,8 @@ class ContributterRanking:
 
     @staticmethod
     def __get_top_contibutters(
-        rank_data: dict[str, int], top: int = 3
+        rank_data: dict[str, int],
+        top: int = 3,
     ) -> list[tuple[str, int]]:
         """Rank data and Get top contributors."""
         return collections.Counter(rank_data).most_common(top)
@@ -155,7 +163,10 @@ class ContributterRanking:
         return f"📊<[ppl: {contrib_n}👤, sum: {contrib_sum}🟩, avg: {avg:.2f}🟩]"
 
     def __tweet_top_n(
-        self, data: list[tuple[str, int]], stat: str, dry_run: bool = False
+        self,
+        data: list[tuple[str, int]],
+        stat: str,
+        dry_run: bool = False,
     ) -> Any:
         """Tweet top-n with stats."""
         mention_interrupt = "." if dry_run else ""
@@ -172,5 +183,6 @@ class ContributterRanking:
         content = "\n".join(contents)
         params = {"status": content}
         return self.__twitter_oauth.post(
-            "https://api.twitter.com/1.1/statuses/update.json", params=params
+            "https://api.twitter.com/1.1/statuses/update.json",
+            params=params,
         )

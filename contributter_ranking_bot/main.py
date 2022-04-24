@@ -12,7 +12,8 @@ from . import ContributterRanking, __version__
 
 
 class CustomHelpFormatter(
-    argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter
+    argparse.ArgumentDefaultsHelpFormatter,
+    argparse.RawDescriptionHelpFormatter,
 ):
     """Custom formatter to pretty help text."""
 
@@ -82,10 +83,16 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("-q", "--quiet", action="store_true", help="suppress log print")
     parser.add_argument(
-        "-D", "--dry-run", action="store_true", help="tweet without mentions"
+        "-D",
+        "--dry-run",
+        action="store_true",
+        help="tweet without mentions",
     )
     parser.add_argument(
-        "-V", "--version", action="version", version=f"%(prog)s {__version__}"
+        "-V",
+        "--version",
+        action="version",
+        version=f"%(prog)s {__version__}",
     )
     return parser.parse_args()
 
@@ -103,7 +110,7 @@ def main() -> None:
     if status_code == 200:
         print(
             "# Running Bot was successful!\n# See at: https://twitter.com/"
-            f"{response_json['user']['screen_name']}/status/{response_json['id']}"
+            f"{response_json['user']['screen_name']}/status/{response_json['id']}",
         )
     else:
         print("# Running Bot was failed!")
