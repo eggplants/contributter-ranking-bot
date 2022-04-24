@@ -31,7 +31,7 @@
 ) [![Run Bot](
   https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron.yml/badge.svg
 )](
-  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/run.yml
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron.yml
 ) [![Release Package](
   https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml/badge.svg
 )](
