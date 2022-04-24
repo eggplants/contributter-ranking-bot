@@ -125,7 +125,7 @@ class ContributterRanking:
                 and contribution_count is not None
                 and contributor_name != ""
             ):
-                rank_data[screen_name] = int(contribution_count)
+                rank_data[contributor_name] = int(contribution_count)
         return rank_data
 
     def __is_contributtter_report(
