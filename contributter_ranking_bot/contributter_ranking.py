@@ -114,7 +114,7 @@ class ContributterRanking:
         rank_data: dict[str, int] = {}
         for tweet in tweets:
             is_ok, screen_name, contribution_count = self.__is_contributtter_report(
-                tweet.get("text", ""),
+                tweet,
             )
             contributor_name = str(
                 tweet.get("user", {"screen_name": ""}).get("screen_name", ""),
@@ -130,18 +130,19 @@ class ContributterRanking:
 
     def __is_contributtter_report(
         self,
-        tweet: str,
+        tweet: Any,
     ) -> tuple[bool, str | None, int | None]:
         """Check if tweet is a valid contributter report."""
+        contributter_source = '<a href="https://contributter.potato4d.me/" rel="nofollow">contributter</a>'
         match = re.match(
             (
                 r"^([a-zA-Z0-9_]{1,15}) さんの "
                 + self.__day_before_str
                 + r" の contribution 数: (\d+)\n#contributter_report$"
             ),
-            tweet,
+            tweet.get("text", ""),
         )
-        if match is not None:
+        if match is not None and tweet.get("source", "") == contributter_source:
             screen_name, contribution_count, *_ = match.groups()
             return True, screen_name, int(contribution_count)
         return False, None, None
