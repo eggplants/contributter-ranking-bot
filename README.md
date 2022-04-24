@@ -14,16 +14,6 @@
   https://codeclimate.com/github/eggplants/contributter-ranking-bot/maintainability
 )
 
-[![Run Bot](
-  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron.yml/badge.svg
-)](
-  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/run.yml
-) [![Release Package](
-  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml/badge.svg
-)](
-  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml
-)
-
 [![pages-build-deployment](
   https://github.com/eggplants/contributter-ranking-bot/actions/workflows/pages/pages-build-deployment/badge.svg
 )](
@@ -34,13 +24,27 @@
   https://results.pre-commit.ci/latest/github/eggplants/contributter-ranking-bot/main
 )
 
+[![Run Bot for test](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron_test.yml/badge.svg
+)](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron_test.yml
+) [![Run Bot](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron.yml/badge.svg
+)](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/cron.yml
+) [![Release Package](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml/badge.svg
+)](
+  https://github.com/eggplants/contributter-ranking-bot/actions/workflows/release.yml
+)
+
 - [Contributter](https://contributter.potato4d.me/) Ranking Bot for Twitter
 - Forked from [shuntatakemoto/contributter-ranking-bot](https://github.com/shuntatakemoto/contributter-ranking-bot)
 
 ## Deployment on Twitter
 
-- Original: [![Twitter Follow](https://img.shields.io/twitter/follow/_who_is_king_)](https://twitter.com/_who_is_king_)
-  - → Forked: [![Twitter Follow](https://img.shields.io/twitter/follow/satoch_bot)](https://twitter.com/satoch_bot)
+- Original: [![Twitter Follow @who_is_king](https://img.shields.io/twitter/follow/_who_is_king_)](https://twitter.com/_who_is_king_)
+  - → Forked: [![Twitter Follow @ContribRankBot](https://img.shields.io/twitter/follow/ContribRankBot)](https://twitter.com/ContribRankBot)
 
 ## Installation
 
