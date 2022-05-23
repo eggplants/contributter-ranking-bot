@@ -178,12 +178,16 @@ class ContributterRanking:
                 prefix = ("🥇", "🥈", "🥉", "🏅", "🎖️")[idx]
             else:
                 prefix = str(idx + 1).translate(tr_table) + " "
+            if not dry_run:
+                self.__twitter_oauth.post(
+                    "https://api.twitter.com/1.1/friendships/create.json",
+                    params={"screen_name": name, "follow": False},
+                )
             contents.append(f"{prefix} {num}🟩: @{mention_interrupt}{name}")
         contents.append(stat)
         contents.append("#contributter_ranking")
         content = "\n".join(contents)
-        params = {"status": content}
         return self.__twitter_oauth.post(
             "https://api.twitter.com/1.1/statuses/update.json",
-            params=params,
+            params={"status": content},
         )
