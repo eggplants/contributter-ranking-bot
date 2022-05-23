@@ -192,5 +192,5 @@ class ContributterRanking:
         content = "\n".join(contents)
         return self.__twitter_oauth.post(
             "https://api.twitter.com/1.1/statuses/update.json",
-            params={"status": content},
+            params={"status": content, "tweet_mode": "extended"},
         )
