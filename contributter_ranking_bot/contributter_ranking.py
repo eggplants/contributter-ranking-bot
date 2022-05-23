@@ -92,7 +92,7 @@ class ContributterRanking:
         while statuses is None or len(statuses) != 0:
             if statuses is not None:
                 # pylint: disable=unsubscriptable-object
-                params["max_id"] = statuses[-1]["id"] - 1
+                params["max_id"] = int(statuses[-1].get("id", 0)) - 1
 
             req = self.__twitter_oauth.get(
                 "https://api.twitter.com/1.1/search/tweets.json",
@@ -133,7 +133,10 @@ class ContributterRanking:
         tweet: Any,
     ) -> tuple[bool, str | None, int | None]:
         """Check if tweet is a valid contributter report."""
-        contributter_source = '<a href="https://contributter.potato4d.me/" rel="nofollow">contributter</a>'
+        contributter_source = (
+            '<a href="https://contributter.potato4d.me/" '
+            'rel="nofollow">contributter</a>'
+        )
         match = re.match(
             (
                 r"^([a-zA-Z0-9_]{1,15}) さんの "
@@ -181,7 +184,7 @@ class ContributterRanking:
             if not dry_run:
                 self.__twitter_oauth.post(
                     "https://api.twitter.com/1.1/friendships/create.json",
-                    params={"screen_name": name, "follow": False},
+                    params={"screen_name": name, "follow": "false"},
                 )
             contents.append(f"{prefix} {num}🟩: @{mention_interrupt}{name}")
         contents.append(stat)
