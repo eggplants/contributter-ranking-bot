@@ -43786,3 +43786,167 @@
     "retweeted": false,
     "lang": "en"
 }
+{
+    "created_at": "Thu Jan 26 16:15:52 +0000 2023",
+    "id": 1618643895511818240,
+    "id_str": "1618643895511818240",
+    "full_text": "\u2728Contribution Ranking - 2023/01/26\u2728\n\ud83e\udd47 90\ud83d\udfe9: @book000_now\n\ud83e\udd48 40\ud83d\udfe9: @ci7lus\n\ud83e\udd49 30\ud83d\udfe9: @potato4d\n\ud83c\udfc5 18\ud83d\udfe9: @_hiko1129\n\ud83c\udf96\ufe0f 16\ud83d\udfe9: @sapphi_red\n\ud83d\udcca&lt;[ppl: 156\ud83d\udc64, sum: 432\ud83d\udfe9, avg: 2.77\ud83d\udfe9]\n#contributter_ranking",
+    "truncated": false,
+    "display_text_range": [
+        0,
+        187
+    ],
+    "entities": {
+        "hashtags": [
+            {
+                "text": "contributter_ranking",
+                "indices": [
+                    166,
+                    187
+                ]
+            }
+        ],
+        "symbols": [],
+        "user_mentions": [
+            {
+                "screen_name": "book000_now",
+                "name": "\u3068\u307e\u3061\u30fc\u306a\u3046\u3077\u308c",
+                "id": 2504756400,
+                "id_str": "2504756400",
+                "indices": [
+                    43,
+                    55
+                ]
+            },
+            {
+                "screen_name": "ci7lus",
+                "name": "\u3057\u306a\u308b",
+                "id": 3414277398,
+                "id_str": "3414277398",
+                "indices": [
+                    63,
+                    70
+                ]
+            },
+            {
+                "screen_name": "potato4d",
+                "name": "potato4d/Takuma HANATANI",
+                "id": 2412513164,
+                "id_str": "2412513164",
+                "indices": [
+                    78,
+                    87
+                ]
+            },
+            {
+                "screen_name": "_hiko1129",
+                "name": "hiko1129",
+                "id": 906146778029801472,
+                "id_str": "906146778029801472",
+                "indices": [
+                    95,
+                    105
+                ]
+            },
+            {
+                "screen_name": "sapphi_red",
+                "name": "\u7fe0",
+                "id": 1104942872577490944,
+                "id_str": "1104942872577490944",
+                "indices": [
+                    114,
+                    125
+                ]
+            }
+        ],
+        "urls": []
+    },
+    "source": "<a href=\"https://example.com\" rel=\"nofollow\">Contributter Ranking</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+        "id": 1400407522083676169,
+        "id_str": "1400407522083676169",
+        "name": "Contributter Ranking Bot",
+        "screen_name": "ContribRankBot",
+        "location": "1 AM JST \u3054\u308d\u66f4\u65b0",
+        "description": "#contributter_report / https://t.co/VDhum7Rpl5 \u304b\u3089\u30c8\u30c3\u30d75\u306e\u65b9\u3005\u3092\u6bce\u65e5\u304a\u77e5\u3089\u305b\u3059\u308bBot\u3067\u3059\u3002Fork\u5143: @_who_is_king_ / \u4f5c\u8005\u69d8: @haruta_8_",
+        "url": "https://t.co/OwHcdMj1mv",
+        "entities": {
+            "url": {
+                "urls": [
+                    {
+                        "url": "https://t.co/OwHcdMj1mv",
+                        "expanded_url": "https://egpl.dev/contributter-ranking-bot",
+                        "display_url": "egpl.dev/contributter-r\u2026",
+                        "indices": [
+                            0,
+                            23
+                        ]
+                    }
+                ]
+            },
+            "description": {
+                "urls": [
+                    {
+                        "url": "https://t.co/VDhum7Rpl5",
+                        "expanded_url": "http://contributter.potato4d.me",
+                        "display_url": "contributter.potato4d.me",
+                        "indices": [
+                            23,
+                            46
+                        ]
+                    }
+                ]
+            }
+        },
+        "protected": false,
+        "followers_count": 16,
+        "friends_count": 136,
+        "listed_count": 0,
+        "created_at": "Thu Jun 03 11:02:37 +0000 2021",
+        "favourites_count": 15,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 265,
+        "lang": null,
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "F5F8FA",
+        "profile_background_image_url": null,
+        "profile_background_image_url_https": null,
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1517212731463536640/ktHUSooa_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1517212731463536640/ktHUSooa_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1400407522083676169/1650728953",
+        "profile_link_color": "1DA1F2",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "none",
+        "withheld_in_countries": []
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+}
