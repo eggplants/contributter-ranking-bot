@@ -45262,3 +45262,167 @@
     "retweeted": false,
     "lang": "en"
 }
+{
+    "created_at": "Sat Feb 04 16:15:59 +0000 2023",
+    "id": 1621905414869876737,
+    "id_str": "1621905414869876737",
+    "full_text": "\u2728Contribution Ranking - 2023/02/04\u2728\n\ud83e\udd47 34\ud83d\udfe9: @hiroki19990625\n\ud83e\udd48 15\ud83d\udfe9: @waritocomatta\n\ud83e\udd49 15\ud83d\udfe9: @Aruminium_Bana7\n\ud83c\udfc5 14\ud83d\udfe9: @book000_now\n\ud83c\udf96\ufe0f 9\ud83d\udfe9: @Awayume_2007\n\ud83d\udcca&lt;[ppl: 146\ud83d\udc64, sum: 174\ud83d\udfe9, avg: 1.19\ud83d\udfe9]\n#contributter_ranking",
+    "truncated": false,
+    "display_text_range": [
+        0,
+        207
+    ],
+    "entities": {
+        "hashtags": [
+            {
+                "text": "contributter_ranking",
+                "indices": [
+                    186,
+                    207
+                ]
+            }
+        ],
+        "symbols": [],
+        "user_mentions": [
+            {
+                "screen_name": "hiroki19990625",
+                "name": "\u3072\u308d\u304d",
+                "id": 2260970125,
+                "id_str": "2260970125",
+                "indices": [
+                    43,
+                    58
+                ]
+            },
+            {
+                "screen_name": "waritocomatta",
+                "name": "waricoma\ud83d\udca4",
+                "id": 3020295132,
+                "id_str": "3020295132",
+                "indices": [
+                    66,
+                    80
+                ]
+            },
+            {
+                "screen_name": "Aruminium_Bana7",
+                "name": "Bana7",
+                "id": 1316051490771853313,
+                "id_str": "1316051490771853313",
+                "indices": [
+                    88,
+                    104
+                ]
+            },
+            {
+                "screen_name": "book000_now",
+                "name": "\u3068\u307e\u3061\u30fc\u306a\u3046\u3077\u308c",
+                "id": 2504756400,
+                "id_str": "2504756400",
+                "indices": [
+                    112,
+                    124
+                ]
+            },
+            {
+                "screen_name": "Awayume_2007",
+                "name": "\u7c9f\u5922",
+                "id": 1358301915835027460,
+                "id_str": "1358301915835027460",
+                "indices": [
+                    132,
+                    145
+                ]
+            }
+        ],
+        "urls": []
+    },
+    "source": "<a href=\"https://example.com\" rel=\"nofollow\">Contributter Ranking</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+        "id": 1400407522083676169,
+        "id_str": "1400407522083676169",
+        "name": "Contributter Ranking Bot",
+        "screen_name": "ContribRankBot",
+        "location": "1 AM JST \u3054\u308d\u66f4\u65b0",
+        "description": "#contributter_report / https://t.co/VDhum7Rpl5 \u304b\u3089\u30c8\u30c3\u30d75\u306e\u65b9\u3005\u3092\u6bce\u65e5\u304a\u77e5\u3089\u305b\u3059\u308bBot\u3067\u3059\u3002Fork\u5143: @_who_is_king_ / \u4f5c\u8005\u69d8: @haruta_8_",
+        "url": "https://t.co/OwHcdMj1mv",
+        "entities": {
+            "url": {
+                "urls": [
+                    {
+                        "url": "https://t.co/OwHcdMj1mv",
+                        "expanded_url": "https://egpl.dev/contributter-ranking-bot",
+                        "display_url": "egpl.dev/contributter-r\u2026",
+                        "indices": [
+                            0,
+                            23
+                        ]
+                    }
+                ]
+            },
+            "description": {
+                "urls": [
+                    {
+                        "url": "https://t.co/VDhum7Rpl5",
+                        "expanded_url": "http://contributter.potato4d.me",
+                        "display_url": "contributter.potato4d.me",
+                        "indices": [
+                            23,
+                            46
+                        ]
+                    }
+                ]
+            }
+        },
+        "protected": false,
+        "followers_count": 35,
+        "friends_count": 137,
+        "listed_count": 0,
+        "created_at": "Thu Jun 03 11:02:37 +0000 2021",
+        "favourites_count": 15,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 275,
+        "lang": null,
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "F5F8FA",
+        "profile_background_image_url": null,
+        "profile_background_image_url_https": null,
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1517212731463536640/ktHUSooa_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1517212731463536640/ktHUSooa_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1400407522083676169/1650728953",
+        "profile_link_color": "1DA1F2",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "none",
+        "withheld_in_countries": []
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+}
