@@ -48050,3 +48050,167 @@
     "retweeted": false,
     "lang": "en"
 }
+{
+    "created_at": "Tue Feb 21 16:16:32 +0000 2023",
+    "id": 1628066148473352199,
+    "id_str": "1628066148473352199",
+    "full_text": "\u2728Contribution Ranking - 2023/02/21\u2728\n\ud83e\udd47 28\ud83d\udfe9: @kzk_maeda\n\ud83e\udd48 27\ud83d\udfe9: @Aniki_Maker\n\ud83e\udd49 20\ud83d\udfe9: @Takahara_Yuuki_\n\ud83c\udfc5 20\ud83d\udfe9: @qst_exe\n\ud83c\udf96\ufe0f 19\ud83d\udfe9: @promitsu_\n\ud83d\udcca&lt;[ppl: 144\ud83d\udc64, sum: 333\ud83d\udfe9, avg: 2.31\ud83d\udfe9]\n#contributter_ranking",
+    "truncated": false,
+    "display_text_range": [
+        0,
+        194
+    ],
+    "entities": {
+        "hashtags": [
+            {
+                "text": "contributter_ranking",
+                "indices": [
+                    173,
+                    194
+                ]
+            }
+        ],
+        "symbols": [],
+        "user_mentions": [
+            {
+                "screen_name": "kzk_maeda",
+                "name": "kzk | \u65b0\u3057\u3044\u30ae\u30bf\u30fc\u8cb7\u3044\u305f\u3044\u3002\u5ac1\u306b\u5c4a\u3051\u3002\u3053\u306e\u60f3\u3044\u3002",
+                "id": 1212200054716432389,
+                "id_str": "1212200054716432389",
+                "indices": [
+                    43,
+                    53
+                ]
+            },
+            {
+                "screen_name": "Aniki_Maker",
+                "name": "Aniki",
+                "id": 1355543038324404225,
+                "id_str": "1355543038324404225",
+                "indices": [
+                    61,
+                    73
+                ]
+            },
+            {
+                "screen_name": "Takahara_Yuuki_",
+                "name": "takaharayuuki",
+                "id": 1357118285653831681,
+                "id_str": "1357118285653831681",
+                "indices": [
+                    81,
+                    97
+                ]
+            },
+            {
+                "screen_name": "qst_exe",
+                "name": "\u304f\u3059\u305f\u3093.vrm\ud83e\udd94\ud83d\udcf1",
+                "id": 1432957956,
+                "id_str": "1432957956",
+                "indices": [
+                    105,
+                    113
+                ]
+            },
+            {
+                "screen_name": "promitsu_",
+                "name": "promitsu",
+                "id": 1176844199620042754,
+                "id_str": "1176844199620042754",
+                "indices": [
+                    122,
+                    132
+                ]
+            }
+        ],
+        "urls": []
+    },
+    "source": "<a href=\"https://example.com\" rel=\"nofollow\">Contributter Ranking</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+        "id": 1400407522083676169,
+        "id_str": "1400407522083676169",
+        "name": "Contributter Ranking Bot",
+        "screen_name": "ContribRankBot",
+        "location": "1 AM JST \u3054\u308d\u66f4\u65b0",
+        "description": "#contributter_report / https://t.co/VDhum7Rpl5 \u304b\u3089\u30c8\u30c3\u30d75\u306e\u65b9\u3005\u3092\u6bce\u65e5\u304a\u77e5\u3089\u305b\u3059\u308bBot\u3067\u3059\u3002Fork\u5143: @_who_is_king_ / \u4f5c\u8005\u69d8: @haruta_8_",
+        "url": "https://t.co/OwHcdMj1mv",
+        "entities": {
+            "url": {
+                "urls": [
+                    {
+                        "url": "https://t.co/OwHcdMj1mv",
+                        "expanded_url": "https://egpl.dev/contributter-ranking-bot",
+                        "display_url": "egpl.dev/contributter-r\u2026",
+                        "indices": [
+                            0,
+                            23
+                        ]
+                    }
+                ]
+            },
+            "description": {
+                "urls": [
+                    {
+                        "url": "https://t.co/VDhum7Rpl5",
+                        "expanded_url": "http://contributter.potato4d.me",
+                        "display_url": "contributter.potato4d.me",
+                        "indices": [
+                            23,
+                            46
+                        ]
+                    }
+                ]
+            }
+        },
+        "protected": false,
+        "followers_count": 37,
+        "friends_count": 141,
+        "listed_count": 0,
+        "created_at": "Thu Jun 03 11:02:37 +0000 2021",
+        "favourites_count": 15,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 292,
+        "lang": null,
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "F5F8FA",
+        "profile_background_image_url": null,
+        "profile_background_image_url_https": null,
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1517212731463536640/ktHUSooa_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1517212731463536640/ktHUSooa_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1400407522083676169/1650728953",
+        "profile_link_color": "1DA1F2",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "none",
+        "withheld_in_countries": []
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+}
